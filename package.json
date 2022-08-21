@@ -1,0 +1,25 @@
+{
+  "name": "dropdown",
+  "version": "1.0.0",
+  "description": "-> create a dropdown menu",
+  "main": "dropdown.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connorwarme/dropdown.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connorwarme/dropdown/issues"
+  },
+  "homepage": "https://github.com/connorwarme/dropdown#readme",
+  "devDependencies": {
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
