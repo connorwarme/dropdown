@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.header,
+.footer {
+    height: 20vh;
+    width: 100vw;
+    background-color: slategrey;
+}
+.body {
+    height: 60vh;
+    width: 100vw;
+    background-color: darkslategrey;
+}
