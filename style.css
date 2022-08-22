@@ -74,6 +74,21 @@
     background-color: coral;
     border: 1px solid black;
 }
+.complist li {
+    text-decoration: none;
+    list-style: none;
+    width: inherit;
+    padding: 4px 32px;
+    border: 1px solid black;
+}
+.complist li > button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+}
+.complist li:hover {
+    filter: invert(100%);
+}
 .athletesContainer {
     grid-column: 5/6;
 }
