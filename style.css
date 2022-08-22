@@ -89,6 +89,10 @@
 .complist li:hover {
     filter: invert(100%);
 }
+.highlight {
+    display: block;
+    border: 3px solid greenyellow;
+}
 .athletesContainer {
     grid-column: 5/6;
 }
