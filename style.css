@@ -100,4 +100,29 @@
     height: 60vh;
     width: 100vw;
     background-color: darkslategrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav > li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.nav > li > button {
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+}
+.nav button > img {
+    height: 40px;
+}
+.nav > li > label {
+    flex-grow: 1;
+}
+.nav > li > button:hover {
+    filter: invert(100%);
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px black;
 }
