@@ -1,12 +1,66 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .header,
 .footer {
     height: 20vh;
     width: 100vw;
     background-color: slategrey;
+}
+.header {
+    display: flex;
+    align-items: flex-end;
+}
+.menuContainer {
+    width: inherit;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.menuContainer > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.homeContainer {
+    grid-column: 2/3;
+}
+.productContainer {
+    grid-column: 3/4;
+}
+.productsBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+}
+.productContainer:hover .products {
+    display: block;
+}
+.products {
+    display: none;
+    position: absolute;
+    top: 20vh;
+    width: inherit;
+    z-index: 1;
+    background-color: coral;
+    border: 1px solid black;
+}
+.products li {
+    text-decoration: none;
+    list-style: none;
+    width: inherit;
+    padding: 4px 16px;
+    border: 1px solid black;
+}
+.products li:hover {
+    filter: invert(100%);
+}
+.companyContainer {
+    grid-column: 4/5;
+}
+.athletesContainer {
+    grid-column: 5/6;
 }
 .body {
     height: 60vh;
