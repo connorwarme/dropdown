@@ -42,7 +42,6 @@
     position: absolute;
     top: 20vh;
     width: inherit;
-    z-index: 1;
     background-color: coral;
     border: 1px solid black;
 }
@@ -58,6 +57,22 @@
 }
 .companyContainer {
     grid-column: 4/5;
+}
+.companyBtn {
+    background-color: transparent;
+    width: inherit;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+.complist {
+    display: none;
+    position: absolute;
+    top: 20vh;
+    width: inherit;
+    background-color: coral;
+    border: 1px solid black;
 }
 .athletesContainer {
     grid-column: 5/6;
