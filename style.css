@@ -98,9 +98,11 @@
 }
 .body {
     height: 60vh;
+    min-height: 480px;
     width: 100vw;
     background-color: darkslategrey;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
     justify-content: center;
     align-items: center;
 }
@@ -108,6 +110,8 @@
     list-style: none;
     display: flex;
     align-items: center;
+    margin: 3px;
+    margin-right: 4px;
 }
 .nav > li > button {
     height: 40px;
@@ -119,10 +123,53 @@
     height: 40px;
 }
 .nav > li > label {
+    padding: 10px 0 10px 10px;
     flex-grow: 1;
 }
 .nav > li > button:hover {
     filter: invert(100%);
     border-radius: 5px;
     box-shadow: 2px 2px 4px black;
+    cursor: pointer;
+}
+.nav > li:hover label {
+    font-style: italic;
+    color: white;
+    cursor: pointer;
+    margin-right: -1px;
+}
+.sliderContainer {
+    height: inherit;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+}
+.backC,
+.forwardC {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back,
+.forward {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: inherit;
+    flex-grow: 1;
+}
+.back > img {
+    height: 130px;
+    transform: rotate(-90deg);
+}
+.forward > img {
+    height: 130px;
+    transform: rotate(90deg);
+}
+.back:hover > img,
+.forward:hover > img {
+    filter: invert(100%);
+    cursor: pointer;
 }
