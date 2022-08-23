@@ -45,7 +45,7 @@ company.nextElementSibling.addEventListener('mouseleave', () => {
 //   }
 // };
 // image slider
-// 
+// images are stored as objects in array
 const container = document.querySelector('div.display');
 const photo1 = {
     src: './icons/Warme-2.jpg',
@@ -69,8 +69,9 @@ const photo4 = {
 }
 const photos = [photo1, photo2, photo3, photo4];
 const photosDom = [];
-let nextPhoto;
+// need current photo, in order to know what is shown, whether to go forward or backward in array
 let currentPhoto = 1;
+// have all photos created as dom elements, set display = "none";
 const createPhotos = (photoArray) => {
     photoArray.forEach(index => {
         const newPhoto = document.createElement('img');
@@ -104,6 +105,17 @@ const discoverValue = (previousValue, input) => {
     const check = checkValue(value);
     return check;
 }
+// slider dots (below image, indicate which slide is currently displayed)
+const dotContainer = container.nextElementSibling;
+// remove class from all, then assign to selected div
+const markDiv = (value) => {
+    const dotDivs = Array.from(dotContainer.children);
+    dotDivs.forEach(index => {
+        index.removeAttribute('class');
+    });
+    const div = dotContainer.children[value - 1];
+    div.classList.add('full');
+}
 // hide previous photo, display next photo
 const displayPhoto = (previousValue, value) => {
     const hide = photosDom.find(index => index.value === previousValue);
@@ -112,8 +124,8 @@ const displayPhoto = (previousValue, value) => {
     const display = photosDom.find(index => index.value === newValue);
     display.style.display = "block";
     currentPhoto = display.value;
+    markDiv(newValue);
 }
-displayPhoto(currentPhoto, 1);
 // arrow (back and forward fn)
 const back = document.querySelector('div.back');
 back.addEventListener('click', () => {
@@ -124,4 +136,16 @@ forward.addEventListener('click', () => {
     displayPhoto(currentPhoto, 'forward')
 })
 // make slider dots, attach each to photo
-const dotContainer = container.nextElementSibling;
+// listener: display photo on click
+const makeDotDivs = (array) => {
+    array.forEach(index => {
+        const div = document.createElement(`div`);
+        div.addEventListener('click', () => {
+            displayPhoto(currentPhoto, index.value);
+        })
+        div.value = index.value;
+        dotContainer.appendChild(div);
+    });
+}
+makeDotDivs(photos);
+displayPhoto(currentPhoto, 1);
