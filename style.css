@@ -161,15 +161,29 @@
     flex-grow: 1;
 }
 .back > img {
-    height: 130px;
+    width: inherit;
     transform: rotate(-90deg);
 }
 .forward > img {
-    height: 130px;
+    width: inherit;
     transform: rotate(90deg);
 }
 .back:hover > img,
 .forward:hover > img {
     filter: invert(100%);
     cursor: pointer;
+}
+.middle {
+    height: inherit;
+    width: inherit;
+    display: grid;
+    grid-template-rows: 9fr 1fr;
+}
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.display > img {
+    height: calc(60vh*.9);
 }

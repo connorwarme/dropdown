@@ -44,3 +44,84 @@ company.nextElementSibling.addEventListener('mouseleave', () => {
 //     company.nextElementSibling.style.display = "none";
 //   }
 // };
+// image slider
+// 
+const container = document.querySelector('div.display');
+const photo1 = {
+    src: './icons/Warme-2.jpg',
+    alt: 'Turkey Rocks',
+    value: 1
+};
+const photo2 = {
+    src: './icons/Warme-3.jpg',
+    alt: 'Turkey Rocks',
+    value: 2
+};
+const photo3 = {
+    src: './icons/Warme-4.jpg',
+    alt: 'Turkey Rocks',
+    value: 3
+}
+const photo4 = {
+    src: './icons/Warme-7.jpg',
+    alt: 'A on Johnny Lat',
+    value: 4
+}
+const photos = [photo1, photo2, photo3, photo4];
+const photosDom = [];
+let nextPhoto;
+let currentPhoto = 1;
+const createPhotos = (photoArray) => {
+    photoArray.forEach(index => {
+        const newPhoto = document.createElement('img');
+        newPhoto.src = index.src;
+        newPhoto.alt = index.alt;
+        newPhoto.value = index.value;
+        container.appendChild(newPhoto);
+        newPhoto.style.display = "none";
+        photosDom.push(newPhoto);
+    });
+}
+createPhotos(photos);
+// check if value goes beyond 1-4, if so, restart value
+const checkValue = (input) => {
+    let value = input;
+    if (value < 1) {
+        value = 4;
+    } else if (input > 4) {
+        value = 1;
+    }
+    return value;
+}
+// discover if value needs +1/-1 based on what button was clicked
+const discoverValue = (previousValue, input) => {
+    let value = input;
+    if (input === 'back') {
+        value = previousValue - 1;
+    } else if (input === 'forward') {
+        value = previousValue + 1;
+    }
+    const check = checkValue(value);
+    return check;
+}
+// hide previous photo, display next photo
+const displayPhoto = (previousValue, value) => {
+    const hide = photosDom.find(index => index.value === previousValue);
+    hide.style.display = "none";
+    const newValue = discoverValue(previousValue, value);
+    const display = photosDom.find(index => index.value === newValue);
+    display.style.display = "block";
+    currentPhoto = display.value;
+}
+displayPhoto(currentPhoto, 1);
+// arrow (back and forward fn)
+const back = document.querySelector('div.back');
+back.addEventListener('click', () => {
+    displayPhoto(currentPhoto, 'back');
+});
+const forward = document.querySelector('div.forward');
+forward.addEventListener('click', () => {
+    displayPhoto(currentPhoto, 'forward')
+})
+// make slider dots, attach each to photo
+const dotContainer = container.nextElementSibling;
